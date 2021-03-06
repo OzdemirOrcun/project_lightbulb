@@ -1,0 +1,13 @@
+.git
+.idea
+**/.idea
+**/__pycache__
+**/.pytest_cache
+input
+output
+test
+local.env
+.gitignore
+.dockerignore
+docker-compose.yml
+orchestrator/*/dockerfile

@@ -1,0 +1,13 @@
+FROM python:3.7
+
+LABEL maintainer=osozdemirorcun@gmail.com
+
+WORKDIR /usr/src/app
+
+COPY ./orchestrator/bridge_service/requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY ./utils/common_utils ./common_utils
+COPY ./config ./config
+
+COPY ./orchestrator/bridge_service ./

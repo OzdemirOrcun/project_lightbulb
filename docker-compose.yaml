@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  orchestrator:
+    build:
+      context: .
+      dockerfile: ./orchestrator/orchestrator_service/dockerfile
+    container_name: orchestrator_service
+    env_file:
+      - local.env
+    volumes:
+      - ./orchestrator/orchestrator_service/:/usr/src/app/
+      - ./utils/common_utils:/usr/src/app/common_utils/
+      - ./output:/usr/src/app/output/
+      - ./config_:/usr/src/app/config_
+    ports:
+      - "8010:8010"
+    command:
+      python3 main.py
+
+  bridge:
+    build:
+      context: .
+      dockerfile: ./orchestrator/bridge_service/dockerfile
+    container_name: bridge_service
+    env_file:
+      - local.env
+    volumes:
+      - ./orchestrator/bridge_service/:/usr/src/app/
+      - ./output:/usr/src/app/output/
+      - ./input:/usr/src/app/input/
+      - ./utils/common_utils:/usr/src/app/common_utils/
+      - ./config_:/usr/src/app/config_
+    ports:
+      - "8013:8013"
+    command:
+      python3 main.py
+
