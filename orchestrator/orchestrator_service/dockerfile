@@ -8,6 +8,6 @@ COPY ./orchestrator/orchestrator_service/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./utils/common_utils ./common_utils
-COPY ./config ./config
+COPY ./config_ ./config_
 
 COPY ./orchestrator/orchestrator_service ./
