@@ -1,0 +1,4 @@
+requests==2.23.0
+SpeechRecognition==3.8.1
+Flask==1.1.1
+common_utils==2.0.1.dev1
