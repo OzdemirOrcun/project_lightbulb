@@ -1,5 +1,6 @@
 from flask import Flask, request
 from config_ import settings
+import json
 from common_utils.logger import logger
 import common_utils.api_utils
 from datetime import datetime
@@ -37,11 +38,8 @@ def speech_endpoint():
     # TODO : Speech should not be an argument for this request, request should be called then retrieve speech from
     #  google
 
-    resp = requests.get('https://api-v3.lightbulb.com/sentence?filter[stop]=speech')
+    resp = requests.get('https://api-v1.lightbulb.com/sentence?filter[stop]=speech')
     text_from_ga = resp.json()['data']
-
-
-
 
     status = request.args.get("status", None)
 
@@ -49,13 +47,26 @@ def speech_endpoint():
         return common_utils.api_utils.bad_request(f"Parameter 'status' must be provided.")
 
     if request.method == "POST":
-        # post the okay signal
-        # under construction
         update_date = datetime.now().strftime("%Y%m%d")
-        return {
+
+        response = {
+            "expectUserResponse": False,
             "status": "ok",
-            "update-date": update_date
+            "finalResponse": {
+                "richResponse": {
+                    "items": [
+                        {
+                            "simpleResponse": {
+                                'ssml': f'<speak>{update_date}</speak>'
+                            }
+                        }
+                    ]
+                }
+            }
         }
+
+        response_text = json.dumps(response, indent=2, sort_keys=True)
+        return response_text, 200
 
     speech_dict = process_speech(status, text_from_ga)
 
