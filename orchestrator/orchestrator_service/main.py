@@ -27,7 +27,6 @@ if not os.path.exists(folder):
     os.makedirs(folder)
 
 
-
 @app.route("/lightbulb", methods=["GET", "POST"])
 def light_bulb_endpoint():
     request_data = request.get_json()
@@ -58,7 +57,8 @@ def light_bulb_endpoint():
 
         if status == 'speech':
             the_speech = get_speech_signal()
-            get_bridge_signal(the_speech, lamp)
+            get_bridge_signal(the_speech["speech"], the_speech["lamp"])
+
         elif status == 'note':
             the_note = get_note_signal()
             get_bridge_signal(the_note, lamp)

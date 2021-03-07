@@ -36,3 +36,21 @@ services:
     command:
       python3 main.py
 
+  speech:
+    build:
+      context: .
+      dockerfile: ./orchestrator/speech_service/dockerfile
+    container_name: speech_service
+    env_file:
+      - local.env
+    volumes:
+      - ./orchestrator/speech_service/:/usr/src/app/
+      - ./output:/usr/src/app/output/
+      - ./input:/usr/src/app/input/
+      - ./utils/common_utils:/usr/src/app/common_utils/
+      - ./config_:/usr/src/app/config_
+    ports:
+      - "8014:8014"
+    command:
+      python3 main.py
+
