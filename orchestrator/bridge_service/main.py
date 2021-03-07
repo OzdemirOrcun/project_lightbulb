@@ -1,10 +1,10 @@
 from flask import Flask, request
 from config_ import settings
-from utils.common_utils.logger import logger
-import utils.common_utils.api_utils
+from common_utils.logger import logger
+import common_utils.api_utils
 from datetime import datetime
 import os
-from bridge_service.bridge.bridge import Bridge_Object
+from bridge.bridge import Bridge_Object
 
 app = Flask("main")
 
@@ -34,7 +34,7 @@ def process_bridge(status, command, lamp):
             logger.info("lights are off")
 
     else:
-        return utils.common_utils.api_utils.bad_request(f"Status is not ok.")
+        return common_utils.api_utils.bad_request(f"Status is not ok.")
 
 
 @app.route("/bridge", methods=["GET", "POST"])
@@ -44,7 +44,7 @@ def bridge_endpoint():
     lamp = request.args.get("lamp", 1)
 
     if not command:
-        return utils.common_utils.api_utils.bad_request(f"Parameter 'command' must be provided.")
+        return common_utils.api_utils.bad_request(f"Parameter 'command' must be provided.")
 
     if request.method == "POST":
         # post the okay signal

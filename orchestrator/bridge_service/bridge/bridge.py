@@ -1,6 +1,6 @@
 from phue import Bridge
 from config_ import settings
-from utils.common_utils.logger import logger
+from common_utils.logger import logger
 
 IP_ADRESS = settings.local_ip_adress
 

@@ -3,8 +3,8 @@ import os
 import asyncio
 import aiohttp
 from datetime import datetime, timedelta
-from utils.common_utils.logger import logger
-from utils.common_utils import api_utils
+from common_utils.logger import logger
+from common_utils import api_utils
 from flask import Flask, request
 from urllib.parse import urlencode
 import glob
