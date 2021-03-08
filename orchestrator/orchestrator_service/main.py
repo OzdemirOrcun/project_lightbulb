@@ -2,6 +2,7 @@ import json
 import os
 import asyncio
 import aiohttp
+import pickle
 from datetime import datetime, timedelta
 from common_utils.logger import logger
 from common_utils import api_utils
@@ -56,10 +57,17 @@ def light_bulb_endpoint():
             return api_utils.bad_request("Please provide status speech/note")
 
         if status == 'speech':
-            the_speech = get_speech_signal()
+            get_speech_signal()
+
+            file_ = open("./output/speech_dict", 'rb')
+            the_speech = pickle.load(file_)
+            file_.close()
+
             get_bridge_signal(the_speech["speech"], the_speech["lamp"])
 
         elif status == 'note':
+
+            # TODO: pickle the note up
             the_note = get_note_signal()
             get_bridge_signal(the_note, lamp)
 

@@ -5,6 +5,7 @@ from common_utils.logger import logger
 import common_utils.api_utils
 from datetime import datetime
 import os
+import pickle
 import requests
 from speech_service.speech.speech import SpeechObject
 
@@ -72,6 +73,10 @@ def speech_endpoint():
 
     command = speech_dict['bri'] if speech_dict['bri'] else speech_dict['turn_on_off_signal']
     lamp = speech_dict['lamp_number']
+
+    outfile = f"./output/speech_dict"
+    with open(outfile, 'wb') as pickle_file:
+        pickle.dump(speech_dict, pickle_file)
 
     return {"speech": command, "lamp": lamp}
 
