@@ -7,7 +7,7 @@ from datetime import datetime
 import os
 import pickle
 import requests
-from speech_service.speech.speech import SpeechObject
+from speech.speech import SpeechObject
 
 app = Flask("main")
 
