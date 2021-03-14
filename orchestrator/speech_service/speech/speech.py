@@ -26,7 +26,7 @@ class SpeechObject:
         def listener(r):
             with sr.Microphone() as source:
                 print("Say something!")
-                audio = r.listen(source)
+                audio = r.record(source,duration=4)
             return audio
 
         audio = listener(r)

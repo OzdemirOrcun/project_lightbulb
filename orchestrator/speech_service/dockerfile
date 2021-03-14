@@ -4,6 +4,10 @@ LABEL maintainer=osozdemirorcun@gmail.com
 
 WORKDIR /usr/src/app
 
+RUN apt-get update \
+        && apt-get install libportaudio2 libportaudiocpp0 portaudio19-dev libsndfile1-dev -y \
+        && pip3 install pyaudio
+
 COPY ./orchestrator/speech_service/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 

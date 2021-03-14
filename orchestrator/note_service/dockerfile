@@ -5,6 +5,12 @@ LABEL maintainer=osozdemirorcun@gmail.com
 WORKDIR /usr/src/app
 
 COPY ./orchestrator/note_service/requirements.txt ./
+
+RUN apt-get update \
+        && apt-get install libportaudio2 libportaudiocpp0 portaudio19-dev libsndfile1-dev -y \
+        && pip3 install pyaudio
+
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./utils/common_utils ./common_utils

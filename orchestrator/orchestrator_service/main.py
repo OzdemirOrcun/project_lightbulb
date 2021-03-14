@@ -35,12 +35,12 @@ def light_bulb_endpoint():
     status = check_key(request_data, "status")
     manuel = check_key(request_data, "manuel")
     lamp = check_key(request_data, "lamp")
+    command = check_key(request_data, 'command')
 
     if lamp is None:
         lamp = "1"
 
     if int(manuel) == 1:
-        command = check_key(request_data, 'command')
 
         if command is None:
             return api_utils.bad_request("Please provide proper command")
@@ -56,20 +56,22 @@ def light_bulb_endpoint():
         if status is None:
             return api_utils.bad_request("Please provide status speech/note")
 
-        if status == 'speech':
+        if command == 'speech':
             get_speech_signal()
 
-            file_ = open("./output/speech_dict", 'rb')
+            file_ = open("./output/speech_dict.pickle", 'rb')
             the_speech = pickle.load(file_)
             file_.close()
 
             get_bridge_signal(the_speech["speech"], the_speech["lamp"])
 
-        elif status == 'note':
+        elif command == 'note':
 
-            # TODO: pickle the note up
-            the_note = get_note_signal()
-            get_bridge_signal(the_note, lamp)
+            get_note_signal()
+            file_ = open("./output/note_dict.pickle", 'rb')
+            the_note = pickle.load(file_)
+            file_.close()
+            get_bridge_signal(the_note["speech"], the_note["lamp"])
 
     return "lightbulb_experience"
 

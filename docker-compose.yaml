@@ -54,3 +54,20 @@ services:
     command:
       python3 main.py
 
+  note:
+    build:
+      context: .
+      dockerfile: ./orchestrator/note_service/dockerfile
+    container_name: note_service
+    env_file:
+      - local.env
+    volumes:
+      - ./orchestrator/note_service/:/usr/src/app/
+      - ./output:/usr/src/app/output/
+      - ./input:/usr/src/app/input/
+      - ./utils/common_utils:/usr/src/app/common_utils/
+      - ./config_:/usr/src/app/config_
+    ports:
+      - "8015:8015"
+    command:
+      python3 main.py
