@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="08faec5e-0014-4cc2-82bf-5735f8f87529" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.env" beforeDir="false" afterPath="$PROJECT_DIR$/local.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/note_service/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/note_service/dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/orchestrator_service/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/orchestrator_service/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/speech_service/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/speech_service/dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/orchestrator/speech_service/speech/speech.py" beforeDir="false" afterPath="$PROJECT_DIR$/orchestrator/speech_service/speech/speech.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615202609946</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="note container is integrated but since the local OS is windows docker container couldnt import hosts' sound card. needs texting">
+      <created>1615748448806</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1615748448807</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -106,25 +107,26 @@
     <MESSAGE value="google api post request attempt #1" />
     <MESSAGE value="pickle objects are created, and read/write commands are implemented for speech api" />
     <MESSAGE value="directories are fixed containers" />
-    <option name="LAST_COMMIT_MESSAGE" value="directories are fixed containers" />
+    <MESSAGE value="note container is integrated but since the local OS is windows docker container couldnt import hosts' sound card. needs texting" />
+    <option name="LAST_COMMIT_MESSAGE" value="note container is integrated but since the local OS is windows docker container couldnt import hosts' sound card. needs texting" />
   </component>
   <component name="WindowStateProjectService">
     <state x="447" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615053869136">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="447" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1615053869136" />
-    <state x="421" y="0" key="CommitChangelistDialog2" timestamp="1615202608223">
+    <state x="421" y="0" key="CommitChangelistDialog2" timestamp="1615748447465">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="421" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1615202608223" />
+    <state x="421" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1615748447465" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1615746135776">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1615746135776" />
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1615202623524">
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1615748463854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1615202623524" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1615748463854" />
     <state x="444" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1615063413665">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

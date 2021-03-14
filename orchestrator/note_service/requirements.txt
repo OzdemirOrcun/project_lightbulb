@@ -1,0 +1,6 @@
+SpeechRecognition==3.8.1
+numpy==1.18.1
+requests==2.23.0
+Flask==1.1.1
+matplotlib==2.2.2
+common_utils==2.0.1.dev1
